@@ -1,0 +1,4 @@
+﻿ID,ProductId,ProductDetailsId,QtyInStock,ReorderLevel,SKU,BarCode
+3,1,7,50,5,SKU800,NULL
+4,2,8,100,5,SKU900,NULL
+5,3,9,70,5,SKU123,NULL
