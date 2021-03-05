@@ -89,7 +89,7 @@ GO
 CREATE TABLE [dbo].[Order](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[OrderDate] [datetime] NOT NULL,
-	[OrderValue] [decimal](2, 2) NOT NULL,
+	[OrderValue] [decimal](4, 2) NOT NULL,
  CONSTRAINT [PK_Order] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -103,7 +103,7 @@ CREATE TABLE [dbo].[OrderItem](
 	[OrderId] [int] NULL,
 	[ProductId] [int] NULL,
 	[Quantity] [int] NOT NULL,
-	[LineItemTotal] [decimal](2, 2) NOT NULL,
+	[LineItemTotal] [decimal](4, 2) NOT NULL,
  CONSTRAINT [PK_OrderItem] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC

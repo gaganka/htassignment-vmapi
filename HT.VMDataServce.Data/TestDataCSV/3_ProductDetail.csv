@@ -1,7 +1,7 @@
 ﻿ID,ProductId,UnitPrice,ImageURL,VendorName,VendorContact
-7,1,1.50,NULL,coca cola vendor,800
-8,2,1.75,NULL,vendor,NULL
-9,3,1.50,NULL,vendor,NULL
-10,4,1.00,NULL,kit kat vendor,NULL
-11,5,1.25,NULL,snickers vendor,NULL
-13,6,1.00,NULL,cheetos vendor,NULL
+7,1,1.50,product-images/cobottleimages.jpg,coca cola vendor,800
+8,2,1.75,product-images/drpepperbottleimages.jpg,vendor,NULL
+9,3,1.50,product-images/mtndewbottleimages.jpg,vendor,NULL
+10,4,1.00,product-images/kitkatbar.jpg,kit kat vendor,NULL
+11,5,1.25,product-images/snickersbar.jpg,snickers vendor,NULL
+13,6,1.00,product-images/cheetosp.jpg,cheetos vendor,NULL
