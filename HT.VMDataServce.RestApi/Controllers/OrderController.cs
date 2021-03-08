@@ -26,14 +26,18 @@ namespace HT.VMDataServce.RestApi.Controllers
         }
 
         [HttpPost]
-        public HttpResponse New(SalesOrder orders)
+        [Route("New")]
+        public HttpResponse New([FromBody] SalesOrder orders)
         {
             HttpResponse queryResponse = new HttpResponse();
 
             try
             {
+                //string s = string.Empty;
                 VMCommandRepository repository = new VMCommandRepository(_dbcontext);
                 repository.NewSalesOrder(orders);
+                queryResponse.ResponseStatusCode = System.Net.HttpStatusCode.OK;
+                queryResponse.IsSuccess = true;
             }
             catch (Exception ex)
             {

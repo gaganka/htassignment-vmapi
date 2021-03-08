@@ -11,7 +11,7 @@ namespace HT.VMDataServce.Domain.Model
         public int OrderId { get; set; }
         [JsonProperty("productId")]
         public int ProductId { get; set; }
-        [JsonProperty("Quantity")]
+        [JsonProperty("quantity")]
         public int Quantity { get; set; }
         [JsonProperty("orderDate")]
         public DateTime OrderDate { get; set; }

@@ -33,7 +33,7 @@ namespace HT.VMDataServce.RestApi
             services.AddDbContext<HTVMDEVDB01Context>(
                 options => options.UseSqlServer("Server=DESKTOP-MJNSDIP\\SQLEXPRESS;Database=HTVMDEVDB01;Trusted_Connection=True;"));
 
-
+            services.AddControllers().AddNewtonsoftJson();
             services.AddCors(c =>
             {
                 c.AddPolicy("AllowAnonymous", builder => builder.AllowAnyOrigin().AllowAnyHeader().

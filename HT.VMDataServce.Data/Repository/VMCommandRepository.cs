@@ -48,14 +48,18 @@ namespace HT.VMDataServce.Data.Repository
                     LineItemTotal = item.LineItemTotal
                 });
 
-                int quantityInStock =
-                _context.ProductInventories.FirstOrDefault(i => i.ProductId == item.ProductId).QtyInStock;
+                var entityToUpdate = _context.ProductInventories.FirstOrDefault(
+                    i => i.ProductId == item.ProductId);
 
-                entites[index] = new ProductInventory
-                {
-                    ProductId = item.ProductId,
-                    QtyInStock = (quantityInStock - item.Quantity)
-                };
+                int quantityInStock =
+                _context.ProductInventories.FirstOrDefault(
+                    i => i.ProductId == item.ProductId).QtyInStock;
+
+                entityToUpdate.QtyInStock = (quantityInStock - item.Quantity);
+
+                entites[index] = entityToUpdate;
+
+                index++;
             }
             );
             
@@ -78,6 +82,16 @@ namespace HT.VMDataServce.Data.Repository
             });           
 
             _context.ProductInventories.UpdateRange(entites);
+
+            try
+            {
+                return _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                string msg = ex.Message + ex.InnerException?.Message;
+            }
+
 
             return _context.SaveChanges();
         }

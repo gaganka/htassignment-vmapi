@@ -46,7 +46,7 @@ namespace HT.VMDataServce.Data.Models
 
                 entity.Property(e => e.OrderDate).HasColumnType("datetime");
 
-                entity.Property(e => e.OrderValue).HasColumnType("decimal(2, 2)");
+                entity.Property(e => e.OrderValue).HasColumnType("decimal(4,2)");
             });
 
             modelBuilder.Entity<OrderItem>(entity =>
@@ -55,7 +55,7 @@ namespace HT.VMDataServce.Data.Models
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
-                entity.Property(e => e.LineItemTotal).HasColumnType("decimal(2, 2)");
+                entity.Property(e => e.LineItemTotal).HasColumnType("decimal(4,2)");
 
                 entity.HasOne(d => d.Order)
                     .WithMany(p => p.OrderItems)
@@ -74,11 +74,11 @@ namespace HT.VMDataServce.Data.Models
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
-                entity.Property(e => e.Amount).HasColumnType("numeric(2, 2)");
+                entity.Property(e => e.Amount).HasColumnType("decimal(4, 2)");
 
-                entity.Property(e => e.AmountPaid).HasColumnType("numeric(2, 2)");
+                entity.Property(e => e.AmountPaid).HasColumnType("decimal(4, 2)");
 
-                entity.Property(e => e.AmountReturned).HasColumnType("numeric(2, 2)");
+                entity.Property(e => e.AmountReturned).HasColumnType("decimal(4, 2)");
 
                 entity.Property(e => e.PaymentDate).HasColumnType("datetime");
 
@@ -128,7 +128,7 @@ namespace HT.VMDataServce.Data.Models
                     .IsUnicode(false)
                     .HasColumnName("ImageURL");
 
-                entity.Property(e => e.UnitPrice).HasColumnType("decimal(2, 2)");
+                entity.Property(e => e.UnitPrice).HasColumnType("decimal(4,2)");
 
                 entity.Property(e => e.VendorContact)
                     .HasMaxLength(20)
