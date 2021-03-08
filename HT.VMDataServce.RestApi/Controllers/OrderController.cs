@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using HT.VMDataServce.Data.Models;
+using HT.VMDataServce.Data.Repository;
+using HT.VMDataServce.Domain.Model;
+using HT.VMDataServce.RestApi.Response;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -11,19 +15,36 @@ namespace HT.VMDataServce.RestApi.Controllers
     [Route("[controller]")]
     public class OrderController : ControllerBase
     {
-        
-
+        private readonly HTVMDEVDB01Context _dbcontext;
         private readonly ILogger<OrderController> _logger;
 
-        public OrderController(ILogger<OrderController> logger)
+        public OrderController(ILogger<OrderController> logger,
+             HTVMDEVDB01Context dbContext)
         {
             _logger = logger;
+            _dbcontext = dbContext;
         }
 
         [HttpPost]
-        public string New(object orders)
+        public HttpResponse New(SalesOrder orders)
         {
-            return string.Empty;
+            HttpResponse queryResponse = new HttpResponse();
+
+            try
+            {
+                VMCommandRepository repository = new VMCommandRepository(_dbcontext);
+                repository.NewSalesOrder(orders);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+
+                queryResponse.IsSuccess = false;
+                queryResponse.ResponseStatusCode = 
+                    System.Net.HttpStatusCode.InternalServerError;
+            }
+
+            return queryResponse;
         }
     }
 }
