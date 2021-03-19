@@ -129,9 +129,9 @@ GO
 CREATE TABLE [dbo].[OrderPayment](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[OrderId] [int] NULL,
-	[Amount] [numeric](2, 2) NOT NULL,
-	[AmountPaid] [numeric](2, 2) NOT NULL,
-	[AmountReturned] [numeric](2, 2) NULL,
+	[Amount] [numeric](4, 2) NOT NULL,
+	[AmountPaid] [numeric](4, 2) NOT NULL,
+	[AmountReturned] [numeric](4, 2) NULL,
 	[PaymentDate] [datetime] NOT NULL,
  CONSTRAINT [PK_OrderPayment] PRIMARY KEY CLUSTERED 
 (
