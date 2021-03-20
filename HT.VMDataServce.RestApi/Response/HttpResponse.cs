@@ -9,7 +9,9 @@ namespace HT.VMDataServce.RestApi.Response
     public class HttpResponse
     {
         public dynamic Data { get; set; }
+        public decimal AmountReturned { get; set; }
         public string ErrorMessage { get; set; }
+        public string Nominals { get; set; }
         public bool IsSuccess { get; set; }
         public HttpStatusCode ResponseStatusCode { get; set; }
     }
